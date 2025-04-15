@@ -27,9 +27,8 @@ def discover():
     raw_schemas = load_schemas()
     streams = []
 
-    for schema in raw_schemas.items():
+    for name,schema in raw_schemas.items():
         streams.append(schema)
-
     return {"streams": streams}
 
 

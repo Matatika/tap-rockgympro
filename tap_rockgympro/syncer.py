@@ -28,7 +28,7 @@ class Syncer:
     def sort_catalog(self):
         streams = []
         for stream_name in ORDERED_STREAM_NAMES:
-            stream = next((s for s in self.catalog['streams'] if s[0] == stream_name), None)
+            stream = next((s for s in self.catalog['streams'] if s["stream"] == stream_name), None)
             if stream:
                 streams.append(stream)
 
@@ -55,8 +55,8 @@ class Syncer:
 
     def sync(self):
         # Loop through streams
-        for stream_name, stream in self.catalog['streams']:
-            processor = self.get_stream(stream_name, stream)
+        for stream in self.catalog['streams']:
+            processor = self.get_stream(stream["stream"], stream)
 
             if not processor:
                 # We couldn't find a streamer for this stream
