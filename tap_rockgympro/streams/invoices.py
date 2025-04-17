@@ -25,5 +25,7 @@ class Invoices(FacilityStream):
 
         if bookmark_time:
             url += '&startDateTime=' + bookmark_time.strftime('%Y-%m-%d %H:%M:%S')
+        else:
+            url +=  '&startDateTime=2025-01-01 00:00:00'
 
         return url

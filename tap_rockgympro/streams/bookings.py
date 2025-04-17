@@ -60,5 +60,7 @@ class Bookings(FacilityStream):
         start_date_time = nested_get(self.original_state, f"{self.stream['stream']}.start_date.{code}.bookingDate")
         if start_date_time:
             url += f'&startDateTime={start_date_time}'
+        else:
+            url +=  '&startDateTime=2025-01-01 00:00:00'
 
         return url

@@ -64,6 +64,8 @@ class Checkins(FacilityStream):
 
         if bookmark_time:
             url += '&startDateTime=' + (bookmark_time - timedelta(hours=24)).strftime('%Y-%m-%d %H:%M:%S')
+        else:
+            url +=  '&startDateTime=2025-01-01 00:00:00'
 
         return url
 
